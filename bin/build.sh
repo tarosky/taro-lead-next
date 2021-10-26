@@ -6,7 +6,7 @@ set -e
 PREFIX="refs/tags/"
 VERSION=${1#"$PREFIX"}
 
-echo "Building Taro Lead Block v${VERSION}..."
+echo "Building Taro Lead Next v${VERSION}..."
 
 # Install composer.
 composer install --no-dev --prefer-dist
@@ -19,5 +19,5 @@ npm run package
 curl -L https://raw.githubusercontent.com/fumikito/wp-readme/master/wp-readme.php | php
 
 # Change version string.
-sed -i.bak "s/^Version: .*/Version: ${VERSION}/g" ./taro-lead-block.php
+sed -i.bak "s/^Version: .*/Version: ${VERSION}/g" ./taro-lead-next.php
 sed -i.bak "s/^Stable Tag: .*/Stable Tag: ${VERSION}/g" ./readme.txt
