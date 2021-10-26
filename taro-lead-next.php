@@ -39,7 +39,7 @@ function tsln_register_assets() {
 		'wp-i18n',
 		'wp-block-editor',
 		'wp-components',
-		'wp-data'
+		'wp-data',
 	], $version, true );
 	wp_localize_script( 'tsln-lead-block', 'TaroLeadNextBlockVars', [
 		'title' => tsln_default_title(),
@@ -66,7 +66,7 @@ function tsln_register_blocks() {
 	add_filter( 'render_block', function( $block, $parsed_block ) {
 		if ( 'tarosky/lead' === $parsed_block['blockName'] ) {
 			// Replace href to next page.
-			$next_page  = max( 1, (int) get_query_var( 'page' ) ) + 1;
+			$next_page = max( 1, (int) get_query_var( 'page' ) ) + 1;
 			if ( ! get_option( 'permalink_structure' ) || in_array( get_post_status(), array( 'draft', 'pending' ), true ) ) {
 				$url = add_query_arg( [
 					'page' => $next_page,
