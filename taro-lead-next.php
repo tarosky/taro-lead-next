@@ -63,7 +63,6 @@ function tsln_register_blocks() {
 	] );
 
 	// Replace link.
-	//
 	add_filter( 'render_block', function( $block, $parsed_block ) {
 		if ( 'tarosky/lead' === $parsed_block['blockName'] ) {
 			// Replace href to next page.

@@ -25,7 +25,7 @@ const classNames = ( align ) => {
 
 registerBlockType( 'tarosky/lead', {
 
-	title: __( 'Lead to Next', 'kbl' ),
+	title: __( 'Lead to Next', 'tsln' ),
 
 	icon: 'edit-large',
 
@@ -50,12 +50,11 @@ registerBlockType( 'tarosky/lead', {
 	},
 
 	edit(  { attributes, setAttributes, className, clientId } ) {
-		const classes = [ 'kbl-alert', 'alert' ];
 		const options = [
-			{ value: '', label: __( 'Default', 'kbl' ) },
-			{ value: 'left', label: __( 'Left', 'kbl' ) },
-			{ value: 'center', label: __( 'Center', 'kbl' ) },
-			{ value: 'right', label: __( 'Right', 'kbl' ) },
+			{ value: '', label: __( 'Default', 'tsln' ) },
+			{ value: 'left', label: __( 'Left', 'tsln' ) },
+			{ value: 'center', label: __( 'Center', 'tsln' ) },
+			{ value: 'right', label: __( 'Right', 'tsln' ) },
 		];
 		const isNextBlockIsPageBreak = ( id ) => {
 			const allBlocks = select( 'core/block-editor' ).getBlocks();
