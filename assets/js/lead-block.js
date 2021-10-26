@@ -8,19 +8,19 @@
 
 /* global TaroLeadNextBlockVars:false */
 
-const { registerBlockType, registerBlockStyle } = wp.blocks;
-const { __, sprintf } = wp.i18n;
+const { registerBlockType } = wp.blocks;
+const { __ } = wp.i18n;
 const { RichText, InspectorControls } = wp.blockEditor;
-const { PanelBody, SelectControl, TextControl, ToggleControl } = wp.components;
+const { PanelBody, SelectControl, TextControl } = wp.components;
 const { title } = TaroLeadNextBlockVars;
 const { select } = wp.data;
 
 const classNames = ( align ) => {
-	const classNames = [ 'taro-lead-next-link' ];
+	const classes = [ 'taro-lead-next-link' ];
 	if ( align ) {
-		classNames.push( `has-text-align-${align}` );
+		classes.push( `has-text-align-${align}` );
 	}
-	return classNames.join( ' ' );
+	return classes.join( ' ' );
 }
 
 registerBlockType( 'tarosky/lead', {
@@ -49,7 +49,7 @@ registerBlockType( 'tarosky/lead', {
 		},
 	},
 
-	edit(  { attributes, setAttributes, className, clientId } ) {
+	edit(  { attributes, setAttributes, clientId } ) {
 		const options = [
 			{ value: '', label: __( 'Default', 'tsln' ) },
 			{ value: 'left', label: __( 'Left', 'tsln' ) },
@@ -80,7 +80,7 @@ registerBlockType( 'tarosky/lead', {
 					<PanelBody title={ __( 'Lead Setting', 'tsln' ) } initialOpen={ true }>
 						<TextControl label={ __( 'Title', 'tsln' ) } value={ attributes.title }
 							help={ __( 'If empty, omitted.', 'tsln' ) }
-							onChange={ ( title ) => setAttributes( { title } ) } />
+							onChange={ ( newTitle ) => setAttributes( { title: newTitle } ) } />
 						<SelectControl label={ __( 'Text Alignment', 'tsln' ) } value={ attributes.align }
 							options={ options }
 							onChange={ ( align ) => setAttributes( { align } ) } />
