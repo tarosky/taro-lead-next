@@ -77,12 +77,12 @@ function tsln_register_blocks() {
 			if ( is_preview() ) {
 				$query_args = [];
 				if ( ( 'draft' !== get_post_status() ) && isset( $_GET['preview_id'], $_GET['preview_nonce'] ) ) {
-					$query_args['preview_id']    = wp_unslash( $_GET['preview_id'] );
-					$query_args['preview_nonce'] = wp_unslash( $_GET['preview_nonce'] );
+					$query_args['preview_id']    = filter_input( INPUT_GET, 'preview_id' );
+					$query_args['preview_nonce'] = filter_input( INPUT_GET, 'preview_nonce' );
 				}
 				$url = get_preview_post_link( get_post(), $query_args, $url );
 			}
-			$block = str_replace( '%link%', $url, $block );
+			$block = str_replace( '%link%', esc_url( $url ), $block );
 		}
 		return $block;
 	}, 10, 2 );
