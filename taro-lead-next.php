@@ -44,6 +44,7 @@ function tsln_register_assets() {
 	wp_localize_script( 'tsln-lead-block', 'TaroLeadNextBlockVars', [
 		'title' => tsln_default_title(),
 	] );
+	wp_set_script_translations( 'tsln-lead-block', 'tsln' );
 	// Style
 	wp_register_style( 'tsln-lead-block', $root . '/dist/css/lead-block.css', [ 'wp-components' ], $version );
 	wp_register_style( 'tsln-lead-block-editor', $root . '/dist/css/lead-block-editor.css', [ 'wp-components', 'tsln-lead-block' ], $version );

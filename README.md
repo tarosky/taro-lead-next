@@ -26,20 +26,20 @@ This plugin add a lead block for pagination. To call user attention to click nex
 HTML scructure is like this.
 
 ```
-<div className="taro-lead-next">
-	<a href="%link%" class="taro-lead-next-link" rel="next">
-		<!-- Title will be omitted if empty. -->
-		<p className="taro-lead-next-title">
+&lt;div className="taro-lead-next"&gt;
+	&lt;a href="%link%" class="taro-lead-next-link" rel="next"&gt;
+		&lt;!-- Title will be omitted if empty. --&gt;
+		&lt;p className="taro-lead-next-title"&gt;
 			Next Page
-		</p>
-		<p class="taro-lead-next-body">
+		&lt;/p&gt;
+		&lt;p class="taro-lead-next-body"&gt;
 			Click next page and find the result!
-		</p>
-	</a>
-</div>
+		&lt;/p&gt;
+	&lt;/a&gt;
+&lt;/div&gt;
 ```
 
-In block editor, `a.taro-lead-next-line` will be `<div>` tag.
+In block editor, `a.taro-lead-next-line` will be `&lt;div&gt;` tag.
 
 Default stylesheet is registered as `tsln-lead-block` in `init` hook at the priority 20.
 For full customization, register your style as a same name. The style registered faster priors to plugin's style.
@@ -81,6 +81,10 @@ Please create new ticket on support forum.
 Create a new [issue](https://github.com/tarosky/taro-lead-next/issues) or send [pull requests](https://github.com/tarosky/taro-lead-next/pulls).
 
 ## Changelog
+
+### 1.0.4
+
+* Add script translation.
 
 ### 1.0.0
 
