@@ -13,11 +13,7 @@ Add simple block to invoke clikc to next page.
 
 ## Description
 
-This plugin add a lead block for pagination. To call user attention to click next page, some lead will be 
-
-1. Create a custom post type "Series".
-2. Add meta box to specified post types to be a part of the series.
-3. Display TOC on post. You can change the settings in Theme Customizer or use "Series TOC" block.
+This plugin add a simple block to call user attention to click next page of paginated posts.
 
 ### Customization
 
@@ -39,7 +35,7 @@ HTML scructure is like this.
 &lt;/div&gt;
 ```
 
-In block editor, `a.taro-lead-next-line` will be `&lt;div&gt;` tag.
+In block editor, `a.taro-lead-next-line` will be `<div>` tag.
 
 Default stylesheet is registered as `tsln-lead-block` in `init` hook at the priority 20.
 For full customization, register your style as a same name. The style registered faster priors to plugin's style.
