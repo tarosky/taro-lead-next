@@ -1,15 +1,17 @@
 <?php
 /**
-Plugin Name: Taro Lead Next
-Plugin URI: https://wordpress.org/plugins/taro-lead-next/
-Description: Add 1 block to next page lead.
-Author: Tarosky INC.
-Version: nightly
-Author URI: https://tarosky.co.jp/
-License: GPL3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: tsln
-Domain Path: /languages
+ * Plugin Name: Taro Lead Next
+ * Plugin URI: https://wordpress.org/plugins/taro-lead-next/
+ * Description: Add 1 block to next page lead.
+ * Author: Tarosky INC.
+ * Version: nightly
+ * Requires at least: 5.4
+ * Requires PHP: 7.2
+ * Author URI: https://tarosky.co.jp/
+ * License: GPL3 or later
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain: tsln
+ * Domain Path: /languages
  */
 
 defined( 'ABSPATH' ) or die();
