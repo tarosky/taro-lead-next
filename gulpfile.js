@@ -22,7 +22,7 @@ gulp.task( 'sass', function () {
 			sourceComments: false,
 			sourcemap: true,
 			includePaths: [
-				'./assets/sass',
+				'./assets/scss',
 				'./vendor',
 				'./node_modules/bootstrap-sass/assets/stylesheets',
 				'./vendor/hametuha'
