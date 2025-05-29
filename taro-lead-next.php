@@ -61,13 +61,13 @@ function tsln_register_assets() {
 function tsln_register_blocks() {
 	// Register blocks.
 	register_block_type( 'tarosky/lead', [
-		'editor_script_handles' => ['tsln-lead-block'],
-		'view_style_handles'    => ['tsln-lead-block'],
-		'editor_style_handles'  => ['tsln-lead-block-editor'],
+		'editor_script_handles' => [ 'tsln-lead-block' ],
+		'view_style_handles'    => [ 'tsln-lead-block' ],
+		'editor_style_handles'  => [ 'tsln-lead-block-editor' ],
 	] );
 
 	// Replace link.
-	add_filter( 'render_block', function( $block, $parsed_block ) {
+	add_filter( 'render_block', function ( $block, $parsed_block ) {
 		if ( 'tarosky/lead' === $parsed_block['blockName'] ) {
 			// Replace href to next page.
 			$next_page = max( 1, (int) get_query_var( 'page' ) ) + 1;
