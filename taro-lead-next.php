@@ -26,16 +26,6 @@ function tsln_init() {
 	add_action( 'init', 'tsln_register_assets', 20 );
 	// Register blocks.
 	add_action( 'init', 'tsln_register_blocks', 21 );
-	// Enqueue scripts
-	add_action('wp_enqueue_scripts', 'tsln_enqueue_scripts');
-}
-
-/**
- * Enqueue scripts.
- */
-function tsln_enqueue_scripts() {
-	wp_enqueue_script('tsln-lead-block');
-	wp_enqueue_style( array( 'tsln-lead-block', 'tsln-lead-block-editor' ) );
 }
 
 /**
@@ -57,8 +47,9 @@ function tsln_register_assets() {
 		'title' => tsln_default_title(),
 	] );
 	wp_set_script_translations( 'tsln-lead-block', 'tsln' );
-	// Style
-	wp_register_style( 'tsln-lead-block', $root . '/dist/css/lead-block.css', [ 'wp-components' ], $version );
+	// Style for frontend.
+	wp_register_style( 'tsln-lead-block', $root . '/dist/css/lead-block.css', [], $version );
+	// style for editor.
 	wp_register_style( 'tsln-lead-block-editor', $root . '/dist/css/lead-block-editor.css', [ 'wp-components', 'tsln-lead-block' ], $version );
 }
 
@@ -69,7 +60,7 @@ function tsln_register_assets() {
  */
 function tsln_register_blocks() {
 	// Register blocks.
-	register_block_type( 'tarosky/lead-block', [
+	register_block_type( 'tarosky/lead', [
 		'editor_script_handles' => ['tsln-lead-block'],
 		'view_style_handles'    => ['tsln-lead-block'],
 		'editor_style_handles'  => ['tsln-lead-block-editor'],
