@@ -1,15 +1,17 @@
 <?php
 /**
-Plugin Name: Taro Lead Next
-Plugin URI: https://wordpress.org/plugins/taro-lead-next/
-Description: Add 1 block to next page lead.
-Author: Tarosky INC.
-Version: nightly
-Author URI: https://tarosky.co.jp/
-License: GPL3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: tsln
-Domain Path: /languages
+ * Plugin Name: Taro Lead Next
+ * Plugin URI: https://wordpress.org/plugins/taro-lead-next/
+ * Description: Add 1 block to next page lead.
+ * Author: Tarosky INC.
+ * Version: nightly
+ * Requires at least: 6.1
+ * Requires PHP: 7.2
+ * Author URI: https://tarosky.co.jp/
+ * License: GPL3 or later
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain: tsln
+ * Domain Path: /languages
  */
 
 defined( 'ABSPATH' ) or die();
@@ -45,8 +47,9 @@ function tsln_register_assets() {
 		'title' => tsln_default_title(),
 	] );
 	wp_set_script_translations( 'tsln-lead-block', 'tsln' );
-	// Style
-	wp_register_style( 'tsln-lead-block', $root . '/dist/css/lead-block.css', [ 'wp-components' ], $version );
+	// Style for frontend.
+	wp_register_style( 'tsln-lead-block', $root . '/dist/css/lead-block.css', [], $version );
+	// style for editor.
 	wp_register_style( 'tsln-lead-block-editor', $root . '/dist/css/lead-block-editor.css', [ 'wp-components', 'tsln-lead-block' ], $version );
 }
 
@@ -57,14 +60,14 @@ function tsln_register_assets() {
  */
 function tsln_register_blocks() {
 	// Register blocks.
-	register_block_type( 'tarosky/lead-block', [
-		'editor_script' => 'tsln-lead-block',
-		'style'         => 'tsln-lead-block',
-		'editor_style'  => 'tsln-lead-block-editor',
+	register_block_type( 'tarosky/lead', [
+		'editor_script_handles' => [ 'tsln-lead-block' ],
+		'view_style_handles'    => [ 'tsln-lead-block' ],
+		'editor_style_handles'  => [ 'tsln-lead-block-editor' ],
 	] );
 
 	// Replace link.
-	add_filter( 'render_block', function( $block, $parsed_block ) {
+	add_filter( 'render_block', function ( $block, $parsed_block ) {
 		if ( 'tarosky/lead' === $parsed_block['blockName'] ) {
 			// Replace href to next page.
 			$next_page = max( 1, (int) get_query_var( 'page' ) ) + 1;

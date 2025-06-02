@@ -16,13 +16,13 @@ gulp.task( 'sass', function () {
 		} ) )
 		.pipe( $.sassGlob() )
 		.pipe( $.sourcemaps.init() )
-		.pipe( $.sass( {
+		.pipe( $.sass( require( 'sass' ) )( {
 			errLogToConsole: true,
 			outputStyle: 'compressed',
 			sourceComments: false,
 			sourcemap: true,
 			includePaths: [
-				'./assets/sass',
+				'./assets/scss',
 				'./vendor',
 				'./node_modules/bootstrap-sass/assets/stylesheets',
 				'./vendor/hametuha'
