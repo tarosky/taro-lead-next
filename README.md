@@ -1,13 +1,13 @@
 # Taro Lead Next
 
 Tags: series, posts, news  
-Contributors: tarosky, Takahashi_Fumiki  
+Contributors: tarosky, Takahashi_Fumiki, tswallie  
 Tested up to: 6.8  
 Stable Tag: nightly  
 License: GPLv3 or later  
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
-Add simple block to invoke clikc to next page.
+Add simple block to invoke click to next page.
 
 ## Description
 
@@ -17,20 +17,20 @@ This plugin add a simple block to call user attention to click next page of pagi
 
 ### Style
 
-HTML scructure is like this.
+HTML structure is like this.
 
 ```
-&lt;div className="taro-lead-next"&gt;
-	&lt;a href="%link%" class="taro-lead-next-link" rel="next"&gt;
-		&lt;!-- Title will be omitted if empty. --&gt;
-		&lt;p className="taro-lead-next-title"&gt;
+<div class="taro-lead-next">
+	<a href="%link%" class="taro-lead-next-link" rel="next">
+		<!-- Title will be omitted if empty. -->
+		<p class="taro-lead-next-title">
 			Next Page
-		&lt;/p&gt;
-		&lt;p class="taro-lead-next-body"&gt;
+		</p>
+		<p class="taro-lead-next-body">
 			Click next page and find the result!
-		&lt;/p&gt;
-	&lt;/a&gt;
-&lt;/div&gt;
+		</p>
+	</a>
+</div>
 ```
 
 In block editor, `a.taro-lead-next-line` will be `<div>` tag.
@@ -60,7 +60,7 @@ add_filter( 'tsln_next_page_default_title', function( $title ) {
 
 Click install and activate it.
 
-### From Github
+### From GitHub
 
 See [releases](https://github.com/tarosky/taro-lead-next/releases).
 
@@ -75,6 +75,11 @@ Please create new ticket on support forum.
 Create a new [issue](https://github.com/tarosky/taro-lead-next/issues) or send [pull requests](https://github.com/tarosky/taro-lead-next/pulls).
 
 ## Changelog
+
+### 1.1.0
+
+* Drop support under WordPress 6.1
+* Fix warning on block editor.
 
 ### 1.0.4
 
