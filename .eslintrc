@@ -14,7 +14,10 @@
 		"Vue": false
 	},
 	"parserOptions": {
-		"requireConfigFile": false
+		"requireConfigFile": false,
+		"babelOptions": {
+			"presets": ["@wordpress/babel-preset-default"]
+		}
 	},
 	"extends": [
 		"plugin:@wordpress/eslint-plugin/recommended"
