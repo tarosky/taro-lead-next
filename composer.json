@@ -1,5 +1,5 @@
 {
-	"name": "tarosky/external-permalink",
+	"name": "tarosky/taro-lead-next",
 	"description": "",
 	"minimum-stability": "stable",
 	"license": "GPL-3.0-or-later",
@@ -13,7 +13,7 @@
 	},
 	"authors": [
 		{
-			"name": "TAROSKKY INC.",
+			"name": "TAROSKY INC.",
 			"email": "info@tarosky.co.jp"
 		}
 	],
