@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Parameter \#1 \$url of function user_trailingslashit expects string, int\<2, max\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: taro-lead-next.php
