@@ -13,6 +13,9 @@
 		"Hashboard": true,
 		"Vue": false
 	},
+	"parserOptions": {
+		"requireConfigFile": false
+	},
 	"extends": [
 		"plugin:@wordpress/eslint-plugin/recommended"
 	],
