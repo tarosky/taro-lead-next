@@ -35,8 +35,11 @@ jobs:
       - name: Install npm dependencies
         run: npm install
 
-      - name: Build Assets
-        run: bash bin/build.sh ${{ github.event.release.tag_name }}
+      - name: Install dependencies and build Assets
+        run: |
+          composer install --no-dev --prefer-dist
+          npm install
+          npm run package
 
       - name: Generate readme.txt
         uses: tarosky/workflows/actions/wp-readme@main
