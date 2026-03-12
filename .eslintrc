@@ -5,19 +5,7 @@
 	},
 	"globals": {
 		"wp": false,
-		"jQuery": false,
-		"angular": false,
-		"Hametuha": true,
-		"wpApiSettings": false,
-		"ga": false,
-		"Hashboard": true,
-		"Vue": false
-	},
-	"parserOptions": {
-		"requireConfigFile": false,
-		"babelOptions": {
-			"presets": ["@wordpress/babel-preset-default"]
-		}
+		"jQuery": false
 	},
 	"extends": [
 		"plugin:@wordpress/eslint-plugin/recommended"
@@ -38,10 +26,5 @@
 		"yoda": "off",
 		"strict": "off",
 		"@wordpress/valid-sprintf": "off"
-	},
-	"settings": {
-		"react": {
-			"version": "16.9.0"
-		}
 	}
 }

@@ -20,8 +20,6 @@ defined( 'ABSPATH' ) or die();
  * Init plugins.
  */
 function tsln_init() {
-	// Register translations.
-	load_plugin_textdomain( 'tsln', false, basename( __DIR__ ) . '/languages' );
 	// Register assets.
 	add_action( 'init', 'tsln_register_assets', 20 );
 	// Register blocks.
@@ -32,25 +30,40 @@ function tsln_init() {
  * Register assets.
  */
 function tsln_register_assets() {
+	$json = __DIR__ . '/wp-dependencies.json';
+	if ( ! file_exists( $json ) ) {
+		return;
+	}
+	$deps = json_decode( file_get_contents( $json ), true );
+	if ( empty( $deps ) ) {
+		return;
+	}
 	// Register assets.
-	$root    = tsln_url();
-	$version = tsln_version();
-	// JS
-	wp_register_script( 'tsln-lead-block', $root . '/dist/js/lead-block.js', [
-		'wp-blocks',
-		'wp-i18n',
-		'wp-block-editor',
-		'wp-components',
-		'wp-data',
-	], $version, true );
+	$root = tsln_url();
+	foreach ( $deps as $dep ) {
+		if ( empty( $dep ) ) {
+			continue;
+		}
+		$url = trailingslashit( $root ) . $dep['path'];
+		switch ( $dep['ext'] ) {
+			case 'css':
+				wp_register_style( $dep['handle'], $url, $dep['deps'], $dep['hash'], $dep['media'] );
+				break;
+			case 'js':
+				$footer = [ 'in_footer' => $dep['footer'] ];
+				if ( in_array( $dep['strategy'], [ 'async', 'defer' ], true ) ) {
+					$footer['strategy'] = $dep['strategy'];
+				}
+				wp_register_script( $dep['handle'], $url, $dep['deps'], $dep['hash'], $footer );
+				if ( in_array( 'wp-i18n', $dep['deps'], true ) ) {
+					wp_set_script_translations( $dep['handle'], 'tsln' );
+				}
+				break;
+		}
+	}
 	wp_localize_script( 'tsln-lead-block', 'TaroLeadNextBlockVars', [
 		'title' => tsln_default_title(),
 	] );
-	wp_set_script_translations( 'tsln-lead-block', 'tsln' );
-	// Style for frontend.
-	wp_register_style( 'tsln-lead-block', $root . '/dist/css/lead-block.css', [], $version );
-	// style for editor.
-	wp_register_style( 'tsln-lead-block-editor', $root . '/dist/css/lead-block-editor.css', [ 'wp-components', 'tsln-lead-block' ], $version );
 }
 
 /**
