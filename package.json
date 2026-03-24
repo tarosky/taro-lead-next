@@ -18,7 +18,9 @@
 		"fix:css": "stylelint --fix assets/scss",
 		"lint": "npm run lint:js && npm run lint:css",
 		"lint:js": "wp-scripts lint-js ./assets/js",
-		"lint:css": "wp-scripts lint-style './assets/scss/**/*.scss'"
+		"lint:css": "wp-scripts lint-style './assets/scss/**/*.scss'",
+		"test:e2e": "npm run package && playwright test",
+		"test:e2e:debug": "npm run package && playwright test --headed"
 	},
 	"watch": {
 		"build:js": {
@@ -48,8 +50,8 @@
 		"node": ">=22.0"
 	},
 	"lint-staged": {
-		"*.js": "npm run fix:js",
-		"*.scss": "npm run fix:css",
+		"assets/**/*.js": "npm run fix:js",
+		"assets/**/*.scss": "npm run fix:css",
 		"*.php": "composer lint"
 	}
 }

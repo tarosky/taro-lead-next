@@ -4,3 +4,5 @@
 /dist
 composer.lock
 wp-dependencies.json
+*.cache
+/artifacts

@@ -23,5 +23,8 @@ wordpress
 vendor
 bin
 tests
+specs
+artifacts
+playwright.config.js
 taro-lead-next.php.bak
 readme.txt.bak
