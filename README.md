@@ -1,6 +1,6 @@
 # Taro Lead Next
 
-Tags: series, posts, pagination, next-page, block  
+Tags: series, posts, pagination, next-page, seo  
 Contributors: tarosky, Takahashi_Fumiki, tswallie  
 Tested up to: 7.0  
 Stable Tag: nightly  
