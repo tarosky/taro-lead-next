@@ -5,7 +5,7 @@
  * Description: Add 1 block to next page lead.
  * Author: Tarosky INC.
  * Version: nightly
- * Requires at least: 6.1
+ * Requires at least: 6.6
  * Requires PHP: 7.4
  * Author URI: https://tarosky.co.jp/
  * License: GPL3 or later

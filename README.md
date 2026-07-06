@@ -2,7 +2,7 @@
 
 Tags: series, posts, news  
 Contributors: tarosky, Takahashi_Fumiki, tswallie  
-Tested up to: 6.8  
+Tested up to: 7.0  
 Stable Tag: nightly  
 License: GPLv3 or later  
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -75,6 +75,11 @@ Please create new ticket on support forum.
 Create a new [issue](https://github.com/tarosky/taro-lead-next/issues) or send [pull requests](https://github.com/tarosky/taro-lead-next/pulls).
 
 ## Changelog
+
+### 1.2.0
+
+* Bump minimum requirements: WordPress 6.6, PHP 7.4
+* Renew build system.
 
 ### 1.1.0
 
