@@ -28,3 +28,4 @@ artifacts
 playwright.config.js
 taro-lead-next.php.bak
 readme.txt.bak
+.claude
