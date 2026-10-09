@@ -34,8 +34,8 @@ test.describe( 'Lead to Next Block', () => {
 		await admin.createNewPost();
 		await editor.insertBlock( { name: 'tarosky/lead' } );
 
-		// Click the RichText body field (no iframe in WP 6.9+).
-		await page
+		// Click the RichText body field. editor.canvas works with or without the iframed editor.
+		await editor.canvas
 			.locator(
 				'[data-type="tarosky/lead"] .taro-lead-next-body'
 			)
